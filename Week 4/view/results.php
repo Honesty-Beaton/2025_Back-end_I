@@ -19,7 +19,7 @@
                     break;
                 default:
                     $result = $num * $i;
-                    $symbol = "×";
+                    $symbol = "x";
                     break;
             }
 
