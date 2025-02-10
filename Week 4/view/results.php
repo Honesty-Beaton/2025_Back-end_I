@@ -1,4 +1,5 @@
 <main class="main-results">
+
     <?php
     function generateMathTable($num, $operation)
     {
@@ -15,21 +16,25 @@
                     break;
                 case "divide":
                     $result = number_format($num / $i, 2);
-                    $symbol = "÷";
+                    $symbol = "/";
                     break;
                 default:
                     $result = $num * $i;
-                    $symbol = "x";
+                    $symbol = "*";
                     break;
             }
 
             $cards .= "<div class='card' tabindex='0'>
+                      <div class='card-inner'>
                           <div class='card-front'>{$num} {$symbol} {$i}</div>
                           <div class='card-back'>{$result}</div>
-                       </div>";
+                      </div>
+                   </div>";
         }
         return $cards;
     }
     echo generateMathTable($number, $operation);
+
     ?>
+
 </main>
