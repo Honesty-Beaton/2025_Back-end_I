@@ -26,7 +26,6 @@ echo $user['name'];
 </head>
 
 <body>
-
 </body>
 
 </html>
