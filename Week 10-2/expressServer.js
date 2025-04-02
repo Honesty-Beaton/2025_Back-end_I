@@ -8,9 +8,14 @@ const cors = require('cors');
 const {logger} = require('./middleware/logger.js')
 const errorHandler = require('./middleware/errorHandler.js')
 
-app.use(express.urlencoded({extended: false}));
 
-//Custom middlerware functions 
+//Built in middlerware functions 
+app.use(express.urlencoded({extended: false}));
+app.use('/assets',express.static(path.join(__dirname, "/assets")));
+app.use('/data', express.static(path.join(__dirname, 'data')));
+app.use(express.json())
+
+//Custom middlerware function
 app.use(logger);
 
 const whiteList = ["http://127.0.0.1:550","http://localhost:3000", "https://www.google.com/" ];
@@ -36,10 +41,7 @@ app.get('/about.html', (req, res) => {
     res.sendFile(path.join(__dirname, "views", "about.html"))
 })
 
-//Built in middlerware functions 
-app.use('/assets',express.static(path.join(__dirname, "/assets")));
-app.use('/data', express.static(path.join(__dirname, 'data')));
-app.use(express.json())
+
 
 
 
@@ -77,6 +79,8 @@ app.get('/*splat', (req, res) => {
     res.sendFile(path.join(__dirname, "views", "404.html"))
 })
 
+
+//Custom middlerware function
 app.use(errorHandler)
 
 app.listen(PORT, ()=>{
