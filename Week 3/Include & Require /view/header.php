@@ -1,3 +1,0 @@
-<header>
-    Website Header
-</header>
