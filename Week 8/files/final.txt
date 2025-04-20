@@ -1,2 +1,0 @@
-This is a test to read the file. 
-Hello, this is a test to write file!Appended Data
